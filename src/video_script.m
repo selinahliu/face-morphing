@@ -6,11 +6,11 @@ do_trig = 0;
 
 %% reading in images
 if size_large
-    im1 = imread('images/im1Large.jpg');
-    im2 = imread('images/im2Large.jpg');
+    im1 = imread('../images/im1Large.jpg');
+    im2 = imread('../images/im2Large.jpg');
 else
-    im1 = imread('images/im1Small.jpg');
-    im2 = imread('images/im2Small.jpg');
+    im1 = imread('../images/im1Small.jpg');
+    im2 = imread('../images/im2Small.jpg');
 end
 
 [r1,c1,~] = size(im1);
@@ -36,22 +36,23 @@ im1 = padarray(im1, [rdiff, cdiff],'post');
 
 if import_pts
     if size_large
-        im1Large = load('images/im1Large_pts.mat');
-        im2Large = load('images/im2Large_pts.mat');
+        im1Large = load('../images/im1Large_pts.mat');
+        im2Large = load('../images/im2Large_pts.mat');
         im1_pts = im1Large.im1_pts;
         im2_pts = im2Large.im2_pts;
-        cpselect(im1,im2,im1_pts,im2_pts);
+        
     else
-        im1Small = load('images/im1Small_pts.mat');
-        im2Small = load('images/im2Small_pts.mat');
+        im1Small = load('../images/im1Small_pts.mat');
+        im2Small = load('../images/im2Small_pts.mat');
         im1_pts = im1Small.im1_pts;
         im2_pts = im2Small.im2_pts;
-        cpselect(im1,im2,im1_pts,im2_pts);
     end    
 else
     [im1_pts, im2_pts] = click_correspondences(im1,im2);
 end
 
+% To check the correctness of correspondence points
+% cpselect(im1,im2,im1_pts,im2_pts);
 
 steps = linspace(0,1,60);
 im1 = double(im1);
@@ -69,7 +70,6 @@ end
 
 %% creating the video
 vid = VideoWriter(fname);
-%vid.FrameRate = 15;
 open(vid);
 
 % write images to video file
