@@ -12,7 +12,7 @@
   
 ## Results
 ### Trigulation
-![Alt Text](https://github.com/selinaaliu/face-morphing/blob/master/results/face_morph_tri.gif)  
+![Alt Text](https://github.com/selinaaliu/face-morphing/blob/master/results/trump_tri.gif)  
 
 ### Thin-Plate Spline (TPS)
-![Alt Text](https://github.com/selinaaliu/face-morphing/blob/master/results/face_morph_tps.gif)
+![Alt Text](https://github.com/selinaaliu/face-morphing/blob/master/results/trump_tps.gif)
